@@ -1,0 +1,90 @@
+iframe {
+  display: none;
+}
+
+html {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.with-error {
+  border: 3px solid red;
+}
+
+.error {
+  color: red;
+}
+
+.GoodsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.GoodCard {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 260px;
+  width: fit-content;
+  padding: 8px 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  min-height: 16px;
+}
+
+.GoodCard p {
+  width: fit-content;
+  padding: 0;
+  margin: 0 auto 0 0;
+}
+
+.GoodCard button {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.GoodForm {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.GoodForm label {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+  align-items: center;
+  gap: 4px;
+}
+
+.formButtons {
+  margin-top: 10px;
+  padding: 2px;
+  font-size: 16px;
+}
+
+.GoodForm input,
+.GoodForm select {
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 3px;
+  width: 160px;
+}
+
+.goodsBody {
+  display: flex;
+  column-gap: 30px;
+  margin-bottom: 30px;
+}
+
+.error-goodList {
+  min-width: 260px;
+}

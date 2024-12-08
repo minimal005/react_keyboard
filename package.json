@@ -7,7 +7,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
-    "bulma": "^1.0.1",
+    "bulma": "^1.0.2",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -71,10 +71,6 @@
   "mateAcademy": {
     "_comment": "Replace 'reactTypescript' with 'react' if you want use React without Typescript",
     "projectType": "reactTypescript",
-    "nodejsMajorVersion": "20",
-    "tests": {
-      "_comment": "Add `cypressComponents: true` to enable component tests",
-      "cypress": true
-    }
+    "nodejsMajorVersion": "20"
   }
 }
