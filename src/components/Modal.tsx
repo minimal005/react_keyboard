@@ -17,7 +17,11 @@ export const Modal: React.FC<Props> = ({ handleRemoveAll, setIsModal }) => {
       <div className="modal-card">
         <header className="modal-card-head">
           <p className="modal-card-title">Warning</p>
-          <button className="delete" aria-label="close"></button>
+          <button
+            onClick={() => setIsModal(false)}
+            className="delete"
+            aria-label="close"
+          ></button>
         </header>
         <section className="modal-card-body">
           <div>Are you sure you want to remove all products?</div>
