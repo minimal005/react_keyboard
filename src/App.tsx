@@ -134,11 +134,10 @@ export const App = () => {
             Edit
           </button>
         )}
-        {isEdited && (
+        {isEdited && !!goods.length && (
           <button
             onClick={() => setIsEdited(false)}
             className="button is-success is-outlined"
-            disabled={!goods.length}
           >
             Save
           </button>
