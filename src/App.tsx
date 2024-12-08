@@ -126,11 +126,10 @@ export const App = () => {
             Add
           </button>
         )}
-        {!isEdited && (
+        {!isEdited && !!goods.length && (
           <button
             onClick={() => setIsEdited(true)}
             className="button is-success is-outlined"
-            disabled={!goods.length}
           >
             Edit
           </button>
@@ -145,13 +144,14 @@ export const App = () => {
           </button>
         )}
 
-        <button
-          className="button is-danger is-outlined"
-          onClick={() => setIsModal(true)}
-          disabled={!goods.length}
-        >
-          Remove All
-        </button>
+        {!!goods.length && (
+          <button
+            className="button is-danger is-outlined"
+            onClick={() => setIsModal(true)}
+          >
+            Remove All
+          </button>
+        )}
       </div>
     </div>
   );
