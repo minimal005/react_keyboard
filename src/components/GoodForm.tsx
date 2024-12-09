@@ -4,8 +4,8 @@ import { getColors } from '../services/color.service';
 import { Good } from '../types/Good';
 
 type Props = {
-  setIsAdd: (v: boolean) => void;
-  addingGood: (v: Good) => void;
+  setIsAdd: (isAdd: boolean) => void;
+  addingGood: (good: Good) => void;
 };
 
 export const GoodForm: React.FC<Props> = ({ setIsAdd, addingGood }) => {

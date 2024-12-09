@@ -5,7 +5,7 @@ import { Good } from '../types/Good';
 type Props = {
   good: Good;
   updateGood: (goodId: number, goodQuantity: number) => void;
-  filterGood: (v: number) => void;
+  filterGood: (goodId: number) => void;
   isEdited: boolean;
 };
 export const GoodCard: React.FC<Props> = props => {

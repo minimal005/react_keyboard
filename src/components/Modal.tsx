@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   handleRemoveAll: () => void;
-  setIsModal: (v: boolean) => void;
+  setIsModal: (isModal: boolean) => void;
 };
 
 export const Modal: React.FC<Props> = ({ handleRemoveAll, setIsModal }) => {
