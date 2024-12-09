@@ -17,7 +17,7 @@ export const preparedGoods: Good[] = goodsFromCart.map(good => ({
 export const sortedGoods = (
   goods: Good[],
   sortedField: string,
-  sortAsc: boolean,
+  sortAsc: string,
 ): Good[] => {
   if (!sortedField) {
     return goods;
@@ -37,7 +37,7 @@ export const sortedGoods = (
     );
   }
 
-  if (!sortAsc) {
+  if (sortAsc === 'desc') {
     return sortingGoods.reverse();
   }
 

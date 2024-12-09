@@ -13,12 +13,15 @@ import {
 
 import { Good } from './types/Good';
 
+import cn from 'classnames';
 import './App.scss';
 
 export const App = () => {
   const [goods, setGoods] = useState<Good[]>(preparedGoods);
-  const [sortAsc, setSortAsc] = useState<boolean | null>(null);
-  const [fieldBySort, setFieldBySort] = useState<string | null>(null);
+  const [sortAscOrDesc, setSortAscOrDesc] = useState<'asc' | 'desc' | null>(
+    null,
+  );
+  const [fieldBySort, setFieldBySort] = useState('');
   const [isAdd, setIsAdd] = useState(false);
   const [isModal, setIsModal] = useState(false);
   const [isEdited, setIsEdited] = useState(false);
@@ -38,17 +41,20 @@ export const App = () => {
   );
 
   const sortingField = (field: string) => {
-    if (!sortAsc) {
-      setSortAsc(true);
+    if (!sortAscOrDesc) {
+      setSortAscOrDesc('asc');
       setFieldBySort(field);
-      setGoods(sortedGoods(goods, field, true));
-    } else if (sortAsc && fieldBySort === field) {
-      setSortAsc(!sortAsc);
-      setGoods(sortedGoods(goods, field, !sortAsc));
+      setGoods(sortedGoods(goods, field, 'asc'));
+    } else if (sortAscOrDesc === 'asc' && fieldBySort === field) {
+      setSortAscOrDesc('desc');
+      setGoods(sortedGoods(goods, field, 'desc'));
+    } else if (sortAscOrDesc === 'desc' && fieldBySort === field) {
+      setSortAscOrDesc('asc');
+      setGoods(sortedGoods(goods, field, 'asc'));
     } else {
-      setSortAsc(true);
+      setSortAscOrDesc('asc');
       setFieldBySort(field);
-      setGoods(sortedGoods(goods, field, true));
+      setGoods(sortedGoods(goods, field, 'asc'));
     }
   };
 
@@ -109,37 +115,24 @@ export const App = () => {
       </div>
 
       <div className="buttons">
-        {isAdd && (
+        {/* {isAdd && ( */}
+        <button
+          onClick={() => setIsAdd(!isAdd)}
+          disabled={isAdd}
+          className={cn('button is-success', {
+            'is-light': isAdd,
+            'is-outlined': !isAdd,
+          })}
+        >
+          Add
+        </button>
+
+        {!!goods.length && (
           <button
-            onClick={() => setIsAdd(false)}
-            disabled
-            className="button is-success is-light"
-          >
-            Add
-          </button>
-        )}
-        {!isAdd && (
-          <button
-            onClick={() => setIsAdd(true)}
+            onClick={() => setIsEdited(!isEdited)}
             className="button is-success is-outlined"
           >
-            Add
-          </button>
-        )}
-        {!isEdited && !!goods.length && (
-          <button
-            onClick={() => setIsEdited(true)}
-            className="button is-success is-outlined"
-          >
-            Edit
-          </button>
-        )}
-        {isEdited && !!goods.length && (
-          <button
-            onClick={() => setIsEdited(false)}
-            className="button is-success is-outlined"
-          >
-            Save
+            {isEdited ? 'Save' : 'Edit'}
           </button>
         )}
 
